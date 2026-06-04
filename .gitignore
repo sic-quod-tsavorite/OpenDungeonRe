@@ -70,3 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Asset Packs
+/[Aa]ssets/BrokenVector/*/*
+!/[Aa]ssets/BrokenVector/source.txt
+!/[Aa]ssets/BrokenVector/UltimateDungeonPack/source.txt
+/[Aa]ssets/LowPolyDungeons/*
+!/[Aa]ssets/LowPolyDungeons/source.txt
+/[Aa]ssets/RPGMonsterWave02PBR/*
+!/[Aa]ssets/RPGMonsterWave02PBR/source.txt
