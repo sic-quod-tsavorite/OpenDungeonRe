@@ -18,8 +18,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float groundCheckDistance = 0.4f;
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private float groundCheckDistance = 0.1f;
 
     [Header("Look Settings")]
     [SerializeField] private float mouseSensitivity = 100f;
@@ -106,13 +105,6 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
-        // Ground check
-        isGrounded = Physics.CheckSphere(
-            transform.position + Vector3.down * (controller.height / 2 - controller.radius),
-            groundCheckDistance,
-            groundMask
-        );
-
         // Handle crouch
         HandleCrouch();
 
@@ -121,6 +113,13 @@ public class FirstPersonController : MonoBehaviour
 
         // Handle movement
         HandleMovement();
+
+        // Ground check - use CharacterController.isGrounded combined with raycast for reliability
+        isGrounded = controller.isGrounded || Physics.Raycast(
+            transform.position,
+            Vector3.down,
+            controller.height / 2 + groundCheckDistance
+        );
 
         // Handle jump
         HandleJump();
