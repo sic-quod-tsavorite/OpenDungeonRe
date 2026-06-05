@@ -223,6 +223,18 @@ The project requires the following asset packs. Download them from the Unity Ass
 3. Ensure **Default Action Map** is set to "Player"
 4. Test with **Input Debugger** (Window > Analysis > Input Debugger)
 
+### InvalidOperationException: Input System Conflict
+
+**Error**: You are trying to read Input using the UnityEngine.Input class, but you have switched active Input handling to Input System package in Player Settings.
+
+**Cause**: Asset pack demo scenes contain scripts using the old Legacy Input System (UnityEngine.Input) which conflicts with the project's Input System setting.
+
+**Solution**: Remove the demo folder containing legacy scripts:
+
+- Delete `Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/`
+
+Do not use scripts from asset pack Demo folders. Use the custom player scripts in `Assets/Scripts/Player/` instead.
+
 ---
 
 ## Build Configuration
