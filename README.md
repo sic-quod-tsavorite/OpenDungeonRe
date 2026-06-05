@@ -121,24 +121,15 @@ For a fresh scene or if setting up manually:
 6. **Configure FirstPersonController Script**
    - **Player Camera**: Assign Main Camera
    - **Camera Pivot**: Assign CameraPivot
-   - **Ground Mask**: Create and assign "Ground" layer
    - **Walk Speed**: 5.0
    - **Run Speed**: 8.0
-   - **Jump Height**: 2.0
+   - **Jump Height**: 1.0
+   - **Ground Check Distance**: 0.1
    - **Mouse Sensitivity**: 50 (adjust to preference)
 
-### Setting Up Ground Layer
+### Ground Detection
 
-1. **Create Ground Layer**
-   - Go to: **Edit > Project Settings > Tags and Layers**
-   - Add new Layer: **"Ground"** (e.g., Layer 6)
-
-2. **Assign to Floor Objects**
-   - Select all floor/terrain GameObjects
-   - In Inspector, set Layer to **Ground**
-
-3. **Update FirstPersonController**
-   - Set **Ground Mask** to include the Ground layer
+The FirstPersonController uses **CharacterController.isGrounded** combined with a **downward raycast** for reliable ground detection. This eliminates the need for a dedicated ground layer or layer mask configuration. The ground check distance can be adjusted in the script settings (default: 0.1).
 
 ---
 
