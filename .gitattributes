@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Exclude from GitHub language statistics
+*.shader linguist-language=
+*.hlsl linguist-language=
+*.hlsli linguist-language=
