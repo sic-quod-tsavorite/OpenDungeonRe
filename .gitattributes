@@ -5,3 +5,4 @@
 *.shader linguist-language=
 *.hlsl linguist-language=
 *.hlsli linguist-language=
+*.cginc linguist-language=
