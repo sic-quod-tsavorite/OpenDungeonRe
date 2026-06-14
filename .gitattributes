@@ -6,3 +6,7 @@
 *.hlsl linguist-language=
 *.hlsli linguist-language=
 *.cginc linguist-language=
+
+# Git LFS
+*.wasm filter=lfs diff=lfs merge=lfs -text
+*.data filter=lfs diff=lfs merge=lfs -text
