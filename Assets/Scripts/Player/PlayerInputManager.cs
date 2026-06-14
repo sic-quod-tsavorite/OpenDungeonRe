@@ -40,6 +40,12 @@ public class PlayerInputManager : MonoBehaviour
     public delegate void SprintEvent(bool isSprinting);
     public event SprintEvent OnSprint;
 
+    public delegate void PreviousEvent();
+    public event PreviousEvent OnPrevious;
+
+    public delegate void NextEvent();
+    public event NextEvent OnNext;
+
     private void Awake()
     {
         // Singleton pattern
@@ -68,6 +74,8 @@ public class PlayerInputManager : MonoBehaviour
         OnJump = null;
         OnCrouch = null;
         OnSprint = null;
+        OnPrevious = null;
+        OnNext = null;
         
         if (Instance == this)
         {
@@ -116,6 +124,16 @@ public class PlayerInputManager : MonoBehaviour
         {
             SprintAction.performed += ctx => OnSprint?.Invoke(true);
             SprintAction.canceled += ctx => OnSprint?.Invoke(false);
+        }
+
+        if (PreviousAction != null)
+        {
+            PreviousAction.performed += ctx => OnPrevious?.Invoke();
+        }
+
+        if (NextAction != null)
+        {
+            NextAction.performed += ctx => OnNext?.Invoke();
         }
     }
 
